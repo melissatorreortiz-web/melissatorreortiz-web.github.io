@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Melissa Torre Ortiz · Portafolio</title>
+<meta name="description" content="Integradora de Contenido & Diseño de Experiencias Digitales. Casos reales de diseño, contenido e integración digital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #06304a;
+    --navy-2: #0b3d5c;
+    --gold: #f6c343;
+    --paper: #f8f6f1;
+    --ink: #10222e;
+    --muted: #5b6b75;
+    --line: #e4dfd3;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.6; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { width: min(1100px, 100% - 32px); margin-inline: auto; }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(6,48,74,.96); backdrop-filter: blur(6px); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
+  .brand { font-family: "Bebas Neue", sans-serif; font-size: 26px; letter-spacing: 1px; color: #fff; text-decoration: none; }
+  .brand span { color: var(--gold); }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links a { color: #dfe9ef; text-decoration: none; font-family: Oswald, sans-serif; font-size: 15px; letter-spacing: .5px; }
+  .nav-links a:hover { color: var(--gold); }
+  .lang { border: 1px solid var(--gold); background: transparent; color: var(--gold); font-family: Oswald, sans-serif; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 14px; }
+  .lang:hover { background: var(--gold); color: var(--navy); }
+
+  /* Hero */
+  header.hero { background: var(--navy); color: #fff; padding: 96px 0 88px; text-align: center; border-bottom: 6px solid var(--gold); }
+  .kicker { font-family: Oswald, sans-serif; letter-spacing: 6px; color: var(--gold); font-size: 15px; display: inline-block; padding-bottom: 6px; border-bottom: 2px solid var(--gold); }
+  .hero h1 { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: clamp(56px, 11vw, 112px); line-height: .92; margin: 26px 0 18px; }
+  .hero h1 .gold { color: var(--gold); display: block; }
+  .hero .role { font-family: Oswald, sans-serif; font-size: clamp(18px, 2.6vw, 24px); color: #e8eef2; margin: 0; }
+  .hero .sub { color: #9fb3c0; margin: 8px 0 32px; }
+  .links { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform .15s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn svg { width: 18px; height: 18px; fill: currentColor; }
+  .btn-gold { background: var(--gold); color: var(--navy); }
+  .btn-line { border: 1.5px solid #ffffff66; color: #fff; }
+  .btn-line:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* About */
+  section { padding: 72px 0; }
+  .label { font-family: Oswald, sans-serif; color: #c99a12; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; margin: 0; }
+  h2 { font-family: "Bebas Neue", sans-serif; font-weight: 400; font-size: clamp(34px, 5vw, 48px); color: var(--navy); margin: 4px 0 8px; line-height: 1.05; }
+  .rule { width: 72px; height: 4px; background: var(--gold); border: 0; margin: 0 0 28px; }
+  .about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: start; }
+  .about p { margin: 0 0 14px; font-size: 17px; }
+  .skills { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 22px 24px; }
+  .skills h3 { font-family: Oswald, sans-serif; font-weight: 500; color: var(--navy); margin: 0 0 10px; font-size: 18px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .tag { background: #eef3f6; color: var(--navy); border-radius: 999px; padding: 4px 12px; font-size: 14px; }
+  .tag.soft { background: #fbf1d4; color: #7a5b00; }
+
+  /* Cases */
+  .case { border-top: 1px solid var(--line); }
+  .case:nth-of-type(even) { background: #fff; }
+  .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .facts dt { font-family: Oswald, sans-serif; color: var(--navy); font-size: 16px; text-transform: uppercase; letter-spacing: .5px; margin-top: 16px; }
+  .facts dd { margin: 4px 0 0; color: #2c3d48; }
+  .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .stack .tag { font-size: 13px; }
+  .gallery { display: grid; gap: 18px; margin-top: 36px; }
+  .gallery figure { margin: 0; }
+  .gallery img { border-radius: 10px; box-shadow: 0 6px 22px rgba(6,48,74,.14); background: #fff; cursor: zoom-in; }
+  .gallery figcaption { text-align: center; color: var(--muted); font-size: 14px; margin-top: 8px; font-family: Oswald, sans-serif; }
+  .g3 { grid-template-columns: repeat(3, 1fr); align-items: start; }
+  .g4 { grid-template-columns: repeat(4, 1fr); align-items: start; }
+  .g2 { grid-template-columns: repeat(2, 1fr); align-items: start; }
+  .live { display: inline-flex; margin-top: 18px; }
+  .btn-navy { background: var(--navy); color: #fff; }
+
+  /* Contact */
+  footer { background: var(--navy); color: #dfe9ef; padding: 64px 0 40px; text-align: center; border-top: 6px solid var(--gold); }
+  footer h2 { color: #fff; }
+  footer .rule { margin: 0 auto 24px; }
+  footer p { margin: 0 0 26px; }
+  .small { color: #8ea4b2; font-size: 13px; margin-top: 40px !important; }
+
+  /* Lightbox */
+  .lightbox { position: fixed; inset: 0; background: rgba(4,20,31,.92); display: none; align-items: center; justify-content: center; padding: 24px; z-index: 50; cursor: zoom-out; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-height: 92vh; width: auto; border-radius: 8px; }
+
+  [data-en] { }
+  @media (max-width: 860px) {
+    .about, .case-grid { grid-template-columns: 1fr; }
+    .g4 { grid-template-columns: repeat(2, 1fr); }
+    .nav-links a { display: none; }
+  }
+  @media (max-width: 520px) {
+    .g3, .g2 { grid-template-columns: 1fr; }
+    header.hero { padding: 72px 0 64px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Melissa <span>Torre Ortiz</span></a>
+    <div class="nav-links">
+      <a href="#sobre-mi" data-i18n="nav_about">Sobre mí</a>
+      <a href="#casos" data-i18n="nav_work">Casos</a>
+      <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+      <button class="lang" id="lang" type="button" aria-label="Change language">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker" data-i18n="kicker">PORTAFOLIO</span>
+    <h1>Melissa <span class="gold">Torre Ortiz</span></h1>
+    <p class="role" data-i18n="role">Integradora de Contenido &amp; Diseño de Experiencias Digitales</p>
+    <p class="sub" data-i18n="sub">Casos reales de diseño, contenido e integración digital</p>
+    <div class="links">
+      <a class="btn btn-gold" href="https://www.behance.net/MELISSA_TO1194" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.2 11.3c.9-.4 1.4-1.2 1.4-2.2C9.6 7 8.1 6 6 6H1v12h5.2c2.3 0 4-1.1 4-3.4 0-1.5-.8-2.6-2-3.3zM3.6 8.1h2.1c.9 0 1.5.4 1.5 1.2 0 .9-.6 1.3-1.5 1.3H3.6V8.1zm2.3 7.8H3.6v-3.1h2.4c1.1 0 1.7.5 1.7 1.6 0 1-.7 1.5-1.8 1.5zM15 7h5v1.3h-5V7zm6.9 7.1c0-2.7-1.6-4.9-4.4-4.9-2.7 0-4.6 2-4.6 4.7 0 2.8 1.8 4.6 4.6 4.6 2.1 0 3.5-1 4.1-2.9h-2.2c-.2.7-1 1.1-1.8 1.1-1.3 0-2-.8-2-2.1h6.3v-.5zm-6.3-1.1c.1-1.1.8-1.8 1.9-1.8 1.1 0 1.7.7 1.8 1.8h-3.7z"/></svg>
+        Behance
+      </a>
+      <a class="btn btn-line" href="https://www.linkedin.com/in/melissa-torre-ortiz-a4876616" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3V9.5zm7 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4V9.5z"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn btn-line" href="mailto:melissa.torreortiz@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.4 7H19.6L12 12.2zM4 9v8h16V9l-8 5.4L4 9z"/></svg>
+        <span data-i18n="email">Correo</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<section id="sobre-mi">
+  <div class="wrap">
+    <p class="label" data-i18n="about_label">Perfil</p>
+    <h2 data-i18n="about_title">Sobre mí</h2>
+    <hr class="rule">
+    <div class="about">
+      <div>
+        <p data-i18n="about_p1">Integradora de Contenido con más de 10 años de experiencia transformando contenido académico e institucional en experiencias digitales claras y de alto impacto.</p>
+        <p data-i18n="about_p2">Combino diseño UX/UI en Figma, maquetación HTML5/CSS3 y desarrollo de producto end-to-end, incluyendo una aplicación web propia en producción, con una base sólida en identidad visual, redacción y estrategia de contenido.</p>
+        <p data-i18n="about_p3">He integrado contenido para los LMS Canvas (Universidad Anáhuac Online) y Brightspace D2L (IBERO), y fui profesora de animación, diseño multimedia y marketing digital en la Universidad Anáhuac del Sur.</p>
+      </div>
+      <div class="skills">
+        <h3 data-i18n="skills_main">Dominio funcional</h3>
+        <div class="tags">
+          <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span>
+          <span class="tag">Figma (UX/UI)</span><span class="tag">Adobe Creative Cloud</span>
+          <span class="tag">WordPress + Elementor</span><span class="tag">LifterLMS</span>
+          <span class="tag">Brightspace (D2L)</span><span class="tag">Canvas</span>
+        </div>
+        <h3 data-i18n="skills_learning">En desarrollo</h3>
+        <div class="tags">
+          <span class="tag soft">PHP</span><span class="tag soft">React / Next.js</span><span class="tag soft">MySQL</span><span class="tag soft">Git</span><span class="tag soft">CodeIgniter</span>
+        </div>
+        <h3 data-i18n="skills_lang">Idiomas</h3>
+        <div class="tags" style="margin-bottom:0">
+          <span class="tag" data-i18n="lang_es">Español (nativo)</span><span class="tag" data-i18n="lang_en">Inglés (90%)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="casos"></div>
+
+<!-- CASO 01 -->
+<section class="case">
+  <div class="wrap">
+    <p class="label" data-i18n="c1_label">Caso 01 · Diseño de campaña</p>
+    <h2 data-i18n="c1_title">Campaña Blue Mat: playeras de taekwondo</h2>
+    <hr class="rule">
+    <div class="case-grid">
+      <dl class="facts">
+        <dt data-i18n="h_problem">Problema / objetivo</dt>
+        <dd data-i18n="c1_problem">La escuela de taekwondo tradicional Moonmoowon (Moo Duk Kwan) necesitaba publicidad para su colección de playeras "Blue Mat" en varios formatos, manteniendo una identidad visual consistente y sin saturar el diseño con precios ni datos de contacto.</dd>
+        <dt data-i18n="h_role">Mi rol</dt>
+        <dd data-i18n="c1_role">Diseño de la campaña completa: concepto visual, jerarquía de información, paleta de color y adaptación del mismo sistema de diseño a tres formatos (feed, story y material impreso).</dd>
+        <dt data-i18n="h_collab">Colaboración</dt>
+        <dd data-i18n="c1_collab">Trabajo directo con la escuela para validar el uso correcto de los escudos oficiales y la información de tallas.</dd>
+      </dl>
+      <dl class="facts">
+        <dt data-i18n="h_solution">Solución</dt>
+        <dd data-i18n="c1_solution">Sistema de diseño basado en la paleta tradicional azul marino y dorado de Moo Duk Kwan, con tipografía de alto impacto, fotografía real del producto como protagonista y una guía de tallas integrada como tarjeta visual.</dd>
+        <dt data-i18n="h_result">Resultado</dt>
+        <dd data-i18n="c1_result">Sistema de piezas listo para distribución inmediata en redes sociales y para imprimir, con identidad coherente entre formatos, reforzando "Blue Mat" como línea oficial de la escuela.</dd>
+      </dl>
+    </div>
+    <div class="gallery g3">
+      <figure><img src="img/bluemat-feed.jpg" alt="Post cuadrado para feed de la campaña Blue Mat" loading="lazy"><figcaption data-i18n="c1_f1">Post cuadrado (feed)</figcaption></figure>
+      <figure><img src="img/bluemat-story.jpg" alt="Story vertical de la campaña Blue Mat con guía de tallas" loading="lazy"><figcaption data-i18n="c1_f2">Story / reel vertical</figcaption></figure>
+      <figure><img src="img/bluemat-flyer.jpg" alt="Flyer impreso de la campaña Blue Mat" loading="lazy"><figcaption data-i18n="c1_f3">Flyer para imprimir</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CASO 02 -->
+<section class="case">
+  <div class="wrap">
+    <p class="label" data-i18n="c2_label">Caso 02 · Producto digital</p>
+    <h2 data-i18n="c2_title">ProgressTrackr: app de seguimiento fitness</h2>
+    <hr class="rule">
+    <div class="case-grid">
+      <dl class="facts">
+        <dt data-i18n="h_problem">Problema / objetivo</dt>
+        <dd data-i18n="c2_problem">No existía una herramienta unificada para dar seguimiento a la rutina de fuerza 5x5, la alimentación (macros, ayuno), las medidas corporales y el progreso en taekwondo, todo en un solo lugar y pensado para usarse rápido desde el celular.</dd>
+        <dt data-i18n="h_role">Mi rol</dt>
+        <dd data-i18n="c2_role">Diseño y desarrollo del producto de principio a fin: arquitectura, navegación entre módulos, identidad visual, lógica de datos y decisiones de infraestructura (hosting, dominio, respaldo de datos).</dd>
+        <dt data-i18n="h_stack">Stack</dt>
+        <dd><div class="stack"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">GitHub</span><span class="tag">Vercel (CI/CD)</span><span class="tag">Google Cloud / OAuth</span><span class="tag" data-i18n="ai">IA (Gemini)</span></div></dd>
+      </dl>
+      <dl class="facts">
+        <dt data-i18n="h_solution">Solución</dt>
+        <dd data-i18n="c2_solution">Aplicación web con acceso privado organizada en módulos: Ejercicio, Comida, Medidas, Taekwondo, Hormonal y Ánimo. Incluye gráficas de progreso, importación automática de datos desde capturas de otras apps mediante IA, respaldo en JSON y sincronización con Google Drive.</dd>
+        <dt data-i18n="h_result">Resultado</dt>
+        <dd data-i18n="c2_result">App en producción con dominio propio, usada a diario, y en evolución hacia un producto para coaches y entrenadores, con un panel de administrador como siguiente fase.</dd>
+        <a class="btn btn-navy live" href="https://progresstrackr.app" target="_blank" rel="noopener" data-i18n="c2_cta">Ver progresstrackr.app →</a>
+      </dl>
+    </div>
+    <div class="gallery g4">
+      <figure><img src="img/app-acceso.jpg" alt="Pantalla de acceso privado de ProgressTrackr" loading="lazy"><figcaption data-i18n="c2_f1">Acceso privado</figcaption></figure>
+      <figure><img src="img/app-menu.jpg" alt="Menú principal de ProgressTrackr con sus módulos" loading="lazy"><figcaption data-i18n="c2_f2">Menú principal</figcaption></figure>
+      <figure><img src="img/app-rutina.jpg" alt="Módulo de ejercicio con la rutina 5x5" loading="lazy"><figcaption data-i18n="c2_f3">Ejercicio · rutina 5x5</figcaption></figure>
+      <figure><img src="img/app-macros.jpg" alt="Módulo de comida con registro de macros" loading="lazy"><figcaption data-i18n="c2_f4">Comida · macros</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CASO 03 -->
+<section class="case">
+  <div class="wrap">
+    <p class="label" data-i18n="c3_label">Caso 03 · WordPress y membresías</p>
+    <h2 data-i18n="c3_title">Blue Mat Academy: plataforma de membresías</h2>
+    <hr class="rule">
+    <div class="case-grid">
+      <dl class="facts">
+        <dt data-i18n="h_problem">Problema / objetivo</dt>
+        <dd data-i18n="c3_problem">La escuela Blue Mat Academy necesitaba una plataforma en línea donde alumnos y profesores accedieran, mediante una membresía, a contenido exclusivo: artículos, guías por cinta y resultados de evaluaciones.</dd>
+        <dt data-i18n="h_role">Mi rol</dt>
+        <dd data-i18n="c3_role">Diseño y construcción del sitio completo en WordPress: maquetación visual con Elementor y configuración de membresías y control de acceso con LifterLMS.</dd>
+        <dt data-i18n="h_stack">Stack</dt>
+        <dd><div class="stack"><span class="tag">WordPress</span><span class="tag">Elementor</span><span class="tag">LifterLMS</span></div></dd>
+      </dl>
+      <dl class="facts">
+        <dt data-i18n="h_solution">Solución</dt>
+        <dd data-i18n="c3_solution">Sitio con cuenta de usuario propia (perfil, contraseña, membresía activa) y una sección restringida "Blue Mat Plus", visible solo para miembros, con guías por cinta y evaluaciones. Identidad de marca aplicada de forma consistente en cada pantalla.</dd>
+        <dt data-i18n="h_result">Resultado</dt>
+        <dd data-i18n="c3_result">Plataforma funcional en producción, con membresías operando y contenido segmentado por tipo de usuario (alumnos / profesores), lista para escalar con más cursos.</dd>
+      </dl>
+    </div>
+    <div class="gallery g2">
+      <figure><img src="img/academy-portada.jpg" alt="Portada de Blue Mat Plus, acceso solo para miembros" loading="lazy"><figcaption data-i18n="c3_f1">Portada Blue Mat Plus (solo miembros)</figcaption></figure>
+      <figure><img src="img/academy-cuenta.jpg" alt="Página de cuenta de membresía en Blue Mat Academy" loading="lazy"><figcaption data-i18n="c3_f2">Cuenta de membresía</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CASO 04 -->
+<section class="case">
+  <div class="wrap">
+    <p class="label" data-i18n="c4_label">Caso 04 · Contenido educativo en LMS</p>
+    <h2 data-i18n="c4_title">IBERO: contenido HTML para Brightspace</h2>
+    <hr class="rule">
+    <div class="case-grid">
+      <dl class="facts">
+        <dt data-i18n="h_problem">Problema / objetivo</dt>
+        <dd data-i18n="c4_problem">Los módulos de curso necesitaban una estructura visual clara y consistente dentro del LMS Brightspace (D2L): progreso del módulo, navegación por subtemas, elementos colapsables y una lectura agradable para el estudiante.</dd>
+        <dt data-i18n="h_role">Mi rol</dt>
+        <dd data-i18n="c4_role">Maquetación e integración del contenido HTML directamente en Brightspace: estructura semántica, componentes reutilizables y aplicación de la plantilla visual institucional.</dd>
+      </dl>
+      <dl class="facts">
+        <dt data-i18n="h_solution">Solución</dt>
+        <dd data-i18n="c4_solution">Componentes HTML/CSS a la medida: barra de progreso del módulo, bloques colapsables (&lt;details&gt;/&lt;summary&gt;) para íconos guía y subtemas, y un sistema de acordeones reutilizable para presentar contenido temático de forma limpia e interactiva.</dd>
+        <dt data-i18n="h_result">Resultado</dt>
+        <dd data-i18n="c4_result">Contenido más ligero de navegar, con jerarquía clara y componentes reutilizables que aceleran el formateo de nuevas unidades manteniendo consistencia visual entre cursos.</dd>
+      </dl>
+    </div>
+    <div class="gallery g3">
+      <figure><img src="img/ibero-modulo.jpg" alt="Estructura de módulo con barra de progreso y acordeón de íconos" loading="lazy"><figcaption data-i18n="c4_f1">Módulo: progreso + íconos</figcaption></figure>
+      <figure><img src="img/ibero-acordeon.jpg" alt="Sistema de acordeones cerrado" loading="lazy"><figcaption data-i18n="c4_f2">Acordeones (cerrado)</figcaption></figure>
+      <figure><img src="img/ibero-acordeon-abierto.jpg" alt="Acordeón expandido con contenido del curso" loading="lazy"><figcaption data-i18n="c4_f3">Acordeón expandido</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="wrap">
+    <p class="label" data-i18n="contact_label">Contacto</p>
+    <h2 data-i18n="contact_title">Trabajemos juntos</h2>
+    <hr class="rule">
+    <p data-i18n="contact_p">Ciudad de México · Disponible para trabajo remoto</p>
+    <div class="links">
+      <a class="btn btn-gold" href="https://www.behance.net/MELISSA_TO1194" target="_blank" rel="noopener">Behance</a>
+      <a class="btn btn-line" href="https://www.linkedin.com/in/melissa-torre-ortiz-a4876616" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-line" href="mailto:melissa.torreortiz@gmail.com">melissa.torreortiz@gmail.com</a>
+    </div>
+    <p class="small">© 2026 Melissa Torre Ortiz</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada"><img alt=""></div>
+
+<script>
+const EN = {
+  nav_about: "About", nav_work: "Work", nav_contact: "Contact",
+  kicker: "PORTFOLIO",
+  role: "Content Integrator & Digital Experience Designer",
+  sub: "Real case studies in design, content and digital integration",
+  email: "Email",
+  about_label: "Profile", about_title: "About me",
+  about_p1: "Content Integrator with 10+ years of experience turning academic and institutional content into clear, high-impact digital experiences.",
+  about_p2: "I combine UX/UI design in Figma, HTML5/CSS3 front-end work and end-to-end product development, including my own web app in production, with a strong foundation in visual identity, writing and content strategy.",
+  about_p3: "I have integrated content for the Canvas (Universidad Anáhuac Online) and Brightspace D2L (IBERO) LMS platforms, and taught animation, multimedia design and digital marketing at Universidad Anáhuac del Sur.",
+  skills_main: "Proficient", skills_learning: "Currently learning", skills_lang: "Languages",
+  lang_es: "Spanish (native)", lang_en: "English (90%)",
+  h_problem: "Problem / goal", h_role: "My role", h_collab: "Collaboration", h_solution: "Solution", h_result: "Outcome", h_stack: "Stack",
+  ai: "AI (Gemini)",
+  c1_label: "Case 01 · Campaign design", c1_title: "Blue Mat campaign: taekwondo apparel",
+  c1_problem: "The traditional taekwondo school Moonmoowon (Moo Duk Kwan) needed advertising for its \"Blue Mat\" t-shirt collection across several formats, with a consistent visual identity and without cluttering the design with prices or contact details.",
+  c1_role: "Designed the full campaign: visual concept, information hierarchy, color palette, and adaptation of one design system to three formats (feed, story and print).",
+  c1_collab: "Worked directly with the school to validate the correct use of the official crests and the sizing information.",
+  c1_solution: "A design system built on Moo Duk Kwan's traditional navy and gold palette, with high-impact typography, real product photography as the hero, and a size guide integrated as a visual card.",
+  c1_result: "A set of pieces ready for immediate distribution on social media and in print, with a consistent identity across formats, reinforcing \"Blue Mat\" as the school's official line.",
+  c1_f1: "Square post (feed)", c1_f2: "Vertical story / reel", c1_f3: "Print flyer",
+  c2_label: "Case 02 · Digital product", c2_title: "ProgressTrackr: fitness tracking app",
+  c2_problem: "There was no single tool to track a 5x5 strength routine, nutrition (macros, fasting), body measurements and taekwondo progress in one place, designed for quick use on a phone.",
+  c2_role: "Designed and built the product end to end: architecture, navigation between modules, visual identity, data logic and infrastructure decisions (hosting, domain, data backup).",
+  c2_solution: "A web app with private access organized into modules: Exercise, Food, Measurements, Taekwondo, Hormonal and Mood. It includes progress charts, AI-powered data import from screenshots of other apps, JSON backup and Google Drive sync.",
+  c2_result: "Live in production on its own domain, used daily, and evolving into a product for coaches and trainers, with an admin panel as the next phase.",
+  c2_cta: "Visit progresstrackr.app →",
+  c2_f1: "Private access", c2_f2: "Main menu", c2_f3: "Exercise · 5x5 routine", c2_f4: "Food · macros",
+  c3_label: "Case 03 · WordPress & memberships", c3_title: "Blue Mat Academy: membership platform",
+  c3_problem: "Blue Mat Academy needed an online platform where students and instructors could access exclusive content through a membership: articles, belt guides and assessment results.",
+  c3_role: "Designed and built the full WordPress site: visual layout with Elementor and membership and access-control setup with LifterLMS.",
+  c3_solution: "A site with user accounts (profile, password, active membership) and a restricted \"Blue Mat Plus\" area, visible only to members, with belt guides and assessments. Brand identity applied consistently on every screen.",
+  c3_result: "A working platform in production, with memberships running and content segmented by user type (students / instructors), ready to scale with more courses.",
+  c3_f1: "Blue Mat Plus home (members only)", c3_f2: "Membership account",
+  c4_label: "Case 04 · Educational content in an LMS", c4_title: "IBERO: HTML content for Brightspace",
+  c4_problem: "Course modules needed a clear, consistent visual structure inside the Brightspace (D2L) LMS: module progress, subtopic navigation, collapsible elements and a pleasant reading experience for students.",
+  c4_role: "Built and integrated HTML content directly in Brightspace: semantic structure, reusable components and the institutional visual template.",
+  c4_solution: "Custom HTML/CSS components: a module progress bar, collapsible blocks (<details>/<summary>) for guide icons and subtopics, and a reusable accordion system to present topic content in a clean, interactive way.",
+  c4_result: "Course content that is easier to navigate, with clear hierarchy and reusable components that speed up formatting new units while keeping visual consistency across courses.",
+  c4_f1: "Module: progress + icons", c4_f2: "Accordions (closed)", c4_f3: "Expanded accordion",
+  contact_label: "Contact", contact_title: "Let's work together",
+  contact_p: "Mexico City · Available for remote work"
+};
+const nodes = document.querySelectorAll("[data-i18n]");
+const ES = {};
+nodes.forEach(n => { ES[n.dataset.i18n] = n.textContent; });
+const btn = document.getElementById("lang");
+function setLang(l) {
+  const dict = l === "en" ? EN : ES;
+  nodes.forEach(n => { const v = dict[n.dataset.i18n]; if (v) n.textContent = v; });
+  document.documentElement.lang = l;
+  btn.textContent = l === "en" ? "ES" : "EN";
+  try { localStorage.setItem("lang", l); } catch (e) {}
+}
+btn.addEventListener("click", () => setLang(document.documentElement.lang === "en" ? "es" : "en"));
+let saved = null;
+try { saved = localStorage.getItem("lang"); } catch (e) {}
+const params = new URLSearchParams(location.search);
+if (params.get("lang") === "en" || saved === "en") setLang("en");
+
+const lb = document.getElementById("lightbox");
+document.querySelectorAll(".gallery img").forEach(img => img.addEventListener("click", () => {
+  lb.querySelector("img").src = img.src; lb.querySelector("img").alt = img.alt; lb.classList.add("open");
+}));
+lb.addEventListener("click", () => lb.classList.remove("open"));
+document.addEventListener("keydown", e => { if (e.key === "Escape") lb.classList.remove("open"); });
+</script>
+</body>
+</html>
